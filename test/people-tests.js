@@ -2,7 +2,7 @@ var expect = require('chai').expect;
 var request = require('request');
 
 describe("/api", function() {
-  var apiUrl = 'https://TK.herokuapp.com/';
+  var apiUrl = 'https://connect-app-api.herokuapp.com/';
   describe("/people", function () {
     describe("POST", function() {
       it("should create a new person object", function(done) {
