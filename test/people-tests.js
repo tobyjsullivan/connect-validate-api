@@ -20,6 +20,20 @@ describe("/api", function() {
           done();
         });
       });
+
+      it("should create unique IDs and names for each new person", function(done) {
+        request.post(apiUrl+'people', function (error, response, body) {
+          var person1 = JSON.parse(body);
+
+          request.post(apiUrl+'people', function (error, response, body) {
+            var person2 = JSON.parse(body);
+
+            expect(person1.personId).to.not.equal(person2.personId);
+            expect(person1.name).to.not.equal(person2.name);
+            done();
+          });
+        });
+      });
     });
   });
 });
