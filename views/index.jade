@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 API Tests
+  form(method='post',action='/runs')
+    button Run Tests
+  p
+    strong Results
+    ul
+      each result in results.length ? results : ['No tests']
+        li= result.status
+          if result.detail != undefined
+            ul
+              li= result.detail
